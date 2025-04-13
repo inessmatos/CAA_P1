@@ -10,7 +10,7 @@ Project 1 of CAA UA 2025
 
 ## [Report](https://typst.app/project/ro0ldpqhMWggBg9W2F50nf)
 
-## State of art
+## State of the art
 The issue of waste classification has been widely discussed due to the large amount of waste produced by man and its environmental effects, such as pollution and health-related risks [1]. In addition, landfills, for example, take up physical space and have the capacity to cause atmospheric, hydrosphere, and geosphere pollution, and burning can lead to the emission of contamination into the air [2].
 Therefore, it is essential to study waste classification, the automatic distinction between different types of waste, and consequently, the environmental and social impact it has on the planet. In this sense, we initially sought to learn a little about previous studies and the respective architectures used. 
 That said, several articles were found that sought to explore the topic and in which architectures such as Convolutional Neural Networks (CNNs), MobileNet, and ResNet, among others, were tested.

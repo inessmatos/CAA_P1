@@ -19,6 +19,7 @@ However, as mentioned, some examples sought to use different approaches, such as
 In short, the literature review shows that using AlexNet, VGG, and even ResNet networks is common, which take advantage of small and more delimited datasets, such as TrashNet. Although the results are encouraging, most works do not perform a very in-depth evaluation, and not all attempt to use transfer learning or even more elaborate data augmentation techniques. In this context, this work aims to compare different approaches to optimize accuracy and promote the development of more intelligent and flexible tools for automatic waste management.
 
 
+
 ## References
 [1] I. Joshi, P. Dev and G. Geetha, "Garbage Classification Using Deep Learning," 2023 International Conference on Circuit Power and Computing Technologies (ICCPCT), Kollam, India, 2023, pp. 809-814, doi: 10.1109/ICCPCT58313.2023.10245133.
 [2] Eurostar, “Waste statistics”, Eurostat Statistics Explained, Apr. 2024. [Online]. Available: https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Waste_statistics

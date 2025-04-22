@@ -27,6 +27,12 @@ The dataset in question contains about 2,500 images in total, with each class ha
 
 Table I
 
+### 3.	Data preprocessing
+After analyzing the dataset in question, applying a set of data preprocessing steps was essential to guarantee data homogeneity. 
+Therefore, to ensure that the input for the models had fixed dimensions, all images were first resized to a standard resolution of 224 x 224 pixels. Next, they were converted and normalized using the ToTensor() function of the torchvision library. In this way, the images were converted into arrays of floats, and the pixel values were automatically normalized to the interval [0,1]. 
+Finally, the dataset was divided into two subsets: the training and testing sets. In this case, approximately 80% (2021 examples) of the data was split into training and 20% into testing (506 examples), a common proportion.
+
+
 
 ## References
 [1] I. Joshi, P. Dev and G. Geetha, "Garbage Classification Using Deep Learning," 2023 International Conference on Circuit Power and Computing Technologies (ICCPCT), Kollam, India, 2023, pp. 809-814, doi: 10.1109/ICCPCT58313.2023.10245133.

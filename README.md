@@ -20,6 +20,14 @@ In short, the literature review shows that using AlexNet, VGG, and even ResNet n
 
 
 
+## Data Analysis
+### 1.	Data Description
+The chosen dataset concerns a data set related to waste classification. It is divided into images of waste classified by different categories, such as cardboard, glass, metal, paper, plastic, and trash.
+The dataset in question contains about 2,500 images in total, with each class having approximately 400 to 500 images. Table I shows the total number of images per category and an illustrative image of each class. It should also be noted that the images have different sizes but are generally small and of moderate resolution, which is common in simple image classification datasets.
+
+Table I
+
+
 ## References
 [1] I. Joshi, P. Dev and G. Geetha, "Garbage Classification Using Deep Learning," 2023 International Conference on Circuit Power and Computing Technologies (ICCPCT), Kollam, India, 2023, pp. 809-814, doi: 10.1109/ICCPCT58313.2023.10245133.
 [2] Eurostar, “Waste statistics”, Eurostat Statistics Explained, Apr. 2024. [Online]. Available: https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Waste_statistics
@@ -27,6 +35,7 @@ In short, the literature review shows that using AlexNet, VGG, and even ResNet n
 [4] Y. Narayan, “DeepWaste: Applying Deep Learning to Waste Classification for a Sustainable Planet,” arXiv preprint arXiv:2101.05960, Jan. 2021. [Online]. Available: https://arxiv.org/abs/2101.05960
 [5] X. Zhang, L. Guo, J. Xie, and S. Wang, “Fine-Tuning Models Comparisons on Garbage Classification for Recyclability,” arXiv preprint arXiv:1908.04393, Aug. 2019. [Online]. Available: https://arxiv.org/abs/1908.04393
 [6] A. Ahmed, M. Said, and M. Chowdhury, “Advancing Recycling Efficiency: A Comparative Analysis of Deep Learning Models in Waste Classification,” arXiv preprint arXiv:2411.02779, Nov. 2024. [Online]. Available: https://arxiv.org/abs/241
+[7] asdasdasasdas, "Garbage classification," Kaggle, Dataset, 2020. [Online]. Available: https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification. [Accessed: Apr. 22, 2025].
 
 
 

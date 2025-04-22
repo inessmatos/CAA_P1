@@ -27,6 +27,18 @@ The dataset in question contains about 2,500 images in total, with each class ha
 
 Table I
 
+### 2. Data preprocessing
+After performing data analysis, it is essential to understand the dataset to be used in the training process. Thus, data visualization helps us understand, interpret, and extract insights from data intuitively and quickly, as well as identify outliers and any features that may not be relevant for training. 
+That said, Figure 7 constructs a graphical visualization of the distribution of images by class, from which it is possible to observe that the number of images is not uniformly distributed among the different categories of waste (cardboard, glass, metal, paper, plastic, trash). Furthermore, this disproportionality may introduce challenges in model training, such as bias towards classes with more examples.
+
+Figure 7
+
+Early identification of this imbalance is essential, as it may justify using techniques such as oversampling, undersampling or class weighting during model training. 
+
+In addition, samples of images belonging to various classes were also viewed, as shown in Figure 8. This visualization allowed us to conclude the visual diversity within the same class, the presence of noise in the images, such as complex backgrounds or partially visible objects, and some differences in lighting and capture angle. In other words, it was possible to identify some details that could impact the generalization capacity of the models.
+
+Figure 8
+
 ### 3.	Data preprocessing
 After analyzing the dataset in question, applying a set of data preprocessing steps was essential to guarantee data homogeneity. 
 Therefore, to ensure that the input for the models had fixed dimensions, all images were first resized to a standard resolution of 224 x 224 pixels. Next, they were converted and normalized using the ToTensor() function of the torchvision library. In this way, the images were converted into arrays of floats, and the pixel values were automatically normalized to the interval [0,1]. 

@@ -2,7 +2,7 @@ import json
 import glob , os
 from matplotlib import pyplot as plt
 import numpy as np
-from sklearn.metrics import auc, classification_report
+from sklearn.metrics import classification_report
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import seaborn as sns
@@ -49,20 +49,15 @@ def generator(path:str,size:tuple[int,int]=(200,200)):
         shuffle=True
     )
     
-class Model:
-    def __init__(self, name, input_size):
+class MModel:
+    def __init__(self, name):
         self.name = name
-        if not isinstance(input_size, tuple):
-            raise TypeError("input_size must be a tuple")
-        self.input_size = input_size
         self.num_params = None
         self.model = None
         self.history = None
-        self.gen_train = generator_transformations("train",self.input_size)
-        self.gen_test = generator("test",self.input_size)
         
     def set_model(self, model):
-        self.model = model(self.input_size)
+        self.model = model
         self.num_params = self.model.count_params()
         
     def summary(self):
@@ -78,6 +73,10 @@ class Model:
         return self.model.fit(self.gen_train,validation_data=self.gen_test, **kwargs)
         
     def fit(self, cache=True, continue_training=False, **kwargs):
+        input_size = self.model.input_shape[1:3]
+        print(input_size)
+        self.gen_train = generator_transformations("train", input_size)
+        self.gen_test = generator("test", input_size)
         model_path = self.model_path()
         model_file = f"{model_path}{self.name}.h5"
         model_history_file = f"{model_path}{self.name}_history.json"

@@ -359,10 +359,7 @@ class LModel:
              pixel_values_batch, labels_batch = self.gen_test_wrapper[i]
              batch_preds = self.model.predict(pixel_values_batch)
              # The model output might be logits or probabilities in a dataclass structure
-             if hasattr(batch_preds, 'logits'):
-                 y_pred_logits.append(batch_preds.logits.numpy()) # Extract logits if necessary
-             else:
-                 y_pred_logits.append(batch_preds) # Assume direct output is logits/probs
+             y_pred_logits.append(batch_preds) # Assume direct output is logits/probs
 
              y_true.append(np.argmax(labels_batch, axis=1)) # Convert one-hot back to integer labels
 

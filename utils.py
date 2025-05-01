@@ -141,6 +141,19 @@ class MModel:
             f.write(classification_report(y_true, y_pred))
             f.close()
             
+        self.gen_train.reset()
+        y_pred_train = []
+        y_true_train = []
+        for i in range(len(self.gen_train)):
+            X_train, y_train = self.gen_train[i]
+            y_pred_train.extend(self.model.predict(X_train))
+            y_true_train.extend(y_train)
+        y_pred_train = np.argmax(y_pred_train, axis=1)
+        y_true_train = np.argmax(y_true_train, axis=1)
+        with open(f"models/{self.name}_{self.num_params}/classification_report_train.txt", "w") as f:
+            f.write(classification_report(y_true_train, y_pred_train))
+            f.close()
+            
 def infinite_gen(seq):
     while True:
         for i in range(len(seq)):
@@ -400,3 +413,39 @@ class LModel:
         with open(report_file, "w") as f:
             f.write(report)
         print(f"Saved classification report to: {report_file}")
+        
+        y_pred_logits_train = []
+        y_true_train = []
+        num_train_batches = len(self.gen_train_wrapper)
+
+        for i in range(num_train_batches):
+             print(f"  Predicting batch {i+1}/{num_train_batches}")
+             pixel_values_batch, labels_batch = self.gen_train_wrapper[i]
+             batch_preds = self.model.predict(pixel_values_batch)
+             # The model output might be logits or probabilities in a dataclass structure
+             y_pred_logits_train.append(batch_preds) # Assume direct output is logits/probs
+
+             y_true_train.append(np.argmax(labels_batch, axis=1)) # Convert one-hot back to integer labels
+
+        y_pred_logits_train = np.concatenate(y_pred_logits_train, axis=0)
+        y_true_train = np.concatenate(y_true_train, axis=0)
+        y_pred_train = np.argmax(y_pred_logits_train, axis=1) # Get predicted class index
+
+        # Ensure we have class labels for the report and matrix
+        if self.class_indices:
+             # Sort labels by index (0, 1, 2...)
+             labels = [k for k, v in sorted(self.class_indices.items(), key=lambda item: item[1])]
+        else:
+             # Fallback if class indices weren't loaded/saved
+             num_classes_found = len(np.unique(y_true))
+             labels = [f"Class_{i}" for i in range(num_classes_found)]
+             print("Warning: Class indices not found, using generic labels.")
+             
+        report_train = classification_report(y_true_train, y_pred_train, target_names=labels)
+        print("\nClassification Report:")
+        print(report_train)
+        report_train_file = os.path.join(_model_path, "classification_report_train.txt")
+        with open(report_train_file, "w") as f:
+            f.write(report_train)
+        print(f"Saved classification report to: {report_train_file}")
+             

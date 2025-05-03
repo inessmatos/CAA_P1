@@ -20,7 +20,7 @@ def one_hot_encode(y):
 def generator_transformations(path:str,size:tuple[int,int]=(200,200)):
     datagen = ImageDataGenerator(
         rescale=1./255,
-        shear_range=0.1,
+        # shear_range=0.1,
         zoom_range=0.1,
         rotation_range=30,
         width_shift_range=0.2,

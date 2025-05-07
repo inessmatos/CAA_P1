@@ -13,3 +13,4 @@ Project 1 of CAA UA 2025
 ## Authors
 
 - Diogo Machado Marto NºMec 108298
+- Inês Matos NºMec 124349
